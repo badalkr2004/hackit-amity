@@ -1,0 +1,64 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+.env/
+*.env
+
+# ignore all files in the 'models' directory
+models/*
+lib/best_audio_sentiment_model.pt
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# FastAPI specific
+*.log
+logs/
+
+# IDE and Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment and configuration
+.env
+.env.local
+.env.development
+.env.production
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Databases (if using local SQLite or other file-based DBs)
+*.sqlite
+*.db
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Specific to your project (add as needed)
+secrets.txt
+config.ini

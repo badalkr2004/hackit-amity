@@ -1,0 +1,23 @@
+# Virtual Environments
+backend/venv/
+backend/.venv/
+backend/lib/best_audio_sentiment_model.pt
+backend/models/models/*
+
+
+# Node Modules
+frontend/node_modules/
+
+# Environment Files
+**/*.env
+!**/*.env.example
+
+# Build and Distribution
+backend/dist/
+frontend/.next/
+frontend/build/
+
+# IDE and OS Files
+.DS_Store
+.vscode/
+.idea/
