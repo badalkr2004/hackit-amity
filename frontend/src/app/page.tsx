@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { systemPrompt } from "../../constants";
 
 interface Message {
   role: "user" | "assistant";
@@ -25,7 +26,12 @@ interface Message {
 type Language = 'en-US' | 'hi-IN';
 
 export default function ChatInterface() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role:"assistant",
+      content:systemPrompt
+    }
+  ]);
   const [input, setInput] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [isListening, setIsListening] = useState(false);
@@ -203,7 +209,8 @@ export default function ChatInterface() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
       <Card className="w-full max-w-2xl p-4 space-y-4 bg-gray-800">
         <CardContent className="space-y-2 h-96 overflow-y-auto">
-          {messages.map((msg, index) => (
+          {messages.slice(1).map((msg, index) => (
+           
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 10 }}
