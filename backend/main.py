@@ -5,11 +5,26 @@ from transformers import pipeline
 from apptypes import Text
 from lib.model import load_model
 from lib.audio_utils import preprocess_audio,get_sentiment_label
+from fastapi.middleware.cors import CORSMiddleware
 
-
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:8080",
+]
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Load trained model
 classifier = pipeline("text-classification", model="./models/sentiment_model",device=0)
 model, device = load_model()  # device is either "cuda" or "cpu"

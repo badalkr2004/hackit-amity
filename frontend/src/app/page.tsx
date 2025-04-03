@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/select";
 import { systemPrompt } from "../../constants";
 
+// import { getSentiment } from "@/lib/api";
+
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -53,8 +55,11 @@ export default function ChatInterface() {
   }, []);
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
-    
+    // console.log(input)
+    // const sentiment = await getSentiment(input)
+    // console.log(sentiment)
+    // if (!input.trim()) return;
+    // const formattedMsg:string = "Users current sentiment is\n\n" + sentiment.sentiment
     const newMessage: Message = { role: "user" as const, content: input };
     setMessages(prev => [...prev, newMessage]);
     setInput("");

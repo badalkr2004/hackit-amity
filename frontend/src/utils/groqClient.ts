@@ -20,6 +20,7 @@ export class GroqClient {
     });
   }
 
+  
   async chatCompletion(messages: Message[], onStream?: (chunk: string) => void): Promise<string> {
     try {
       const chatCompletion = await this.groq.chat.completions.create({
